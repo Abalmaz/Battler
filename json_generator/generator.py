@@ -16,16 +16,16 @@ def generate_units(type_of_squad):
     unit = {}
     if type_of_squad == 'soldiers':
         health = 100
-        recharge = random.randint(100, 1000)
+        recharge = random.randint(10, 100) # должно быть 100 и 1000, изменено для ускорения процесса проверки
         unit.update({"health": health, "recharge": recharge})
     elif type_of_squad == 'vehicles':
         health = 100
-        recharge = random.randint(1000, 2000)
+        recharge = random.randint(100, 200) # должно быть 1000 и 2000, изменено для ускорения процесса проверки
         operators = []
         count_operators = random.randint(1, 3)
         for _ in range(count_operators):
             health = 100
-            recharge = random.randint(100, 1000)
+            recharge = random.randint(10, 100) # должно быть 100 и 1000, изменено для ускорения процесса проверки
             operators.append({"health":health, "recharge": recharge})
         unit.update({"health": health, "recharge": recharge, "operators": operators})
     return unit                

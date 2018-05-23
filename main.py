@@ -13,17 +13,12 @@ def main():
 
 
     logging.info("Battle is started")
-    print("Battle is started")
     armies = craete_class_from_json('json_generator/armies.json')
     logging.info("Armies participating in the battle:")
-    print("Armies participating in the battle:")
     logging.info("Count of armies %s"%(len(armies)))
-    print("Count of armies %s"%(len(armies)))
     for army in armies:
         logging.info("    Army of %s, strategy '%s', count of squads %s"%(army.name, army.strategy, len(army.squads)))
-        print("    Army of %s, strategy '%s', count of squads %s"%(army.name, army.strategy, len(army.squads)))
-
-    print("#"*60)    
+ 
 
 
     while True:
@@ -39,11 +34,8 @@ def main():
 
         if attacking_squad.attack_success > target_squad.attack_success:           
             
-            print("Attacking army: %s, attacking squad (type '%s', counts:  %s)"%(armies[attacking_army].name, attacking_squad.type, len(attacking_squad.units) ))
-            print("Target squad: type: '%s', counts:  %s"%(target_squad.type, len(target_squad.units) ))
             logging.info("Attack is successful, damage is %.3f"%(attacking_squad.damage))
-            print("Attack is successful, damage is %.3f"%(attacking_squad.damage))
-            target_squad.damage_received(attacking_squad.damage)
+            target_squad.damage_received(attacking_squad.damage*1000) # * 1000 для ускарения процесса тестирования
             
             # Operation with attaking squads
             for n, unit in enumerate(attacking_squad.units):
@@ -56,41 +48,27 @@ def main():
             
             if target_squad.is_live() == False:
                 logging.info("Target squad is destroy")
-                print("Target squad is  destroy")
 
             for n, army in enumerate(armies):
                 if army.is_live() == False:
                     logging.info("Army %s is destroy"%(army.name))
-                    print("Army %s is destroy"%(army.name))
                     del armies[n]
                     logging.info("Count of armies: %s"%(len(armies)))
-                    print("Count of armies: %s"%(len(armies)))
 
-            print("*"*80)
-            logging.info("*"*80)
             for army in armies:
-                print(army.name)
                 logging.info(army.name)
                 for squad in army.squads:
-                    print("    Squad type: %s"%(squad.type))
                     logging.info("    Squad type: %s"%(squad.type))
-                    print("    Squad counts: %s"%(len(squad.units)))
                     logging.info("    Squad counts: %s"%(len(squad.units)))
-                    for n, unit in enumerate(squad.units):
-                        print("        Unit %s health %.2f,  attack success %.3f, time recharge: %s"%(n+1, unit.health, unit.attack_success, time.strftime("%H:%M:%S", time.localtime(unit.time_recharge))))
-                        logging.info("        Unit %s health %.2f,  attack success %.3f, time recharge: %s"%(n+1, unit.health, unit.attack_success, time.strftime("%H:%M:%S", time.localtime(unit.time_recharge))))
-            logging.info("*"*80)
-            print("*"*80)                    
+                    for n, unit in enumerate(squad.units):                       
+                        logging.info("        Unit %s health %.2f,  attack success %.3f, time recharge: %s"%(n+1, unit.health, unit.attack_success, time.strftime("%H:%M:%S", time.localtime(unit.time_recharge))))                   
 
         else:
             logging.info("Attacking squad is lose")
 
-        logging.info("*"*80)
 
         if len(armies) == 1:
             logging.info("Army %s with strategy '%s' is win!"%(armies[0].name, armies[0].strategy))
-            print("Army %s with strategy %s is win!"%(armies[0].name, armies[0].strategy))
-            print("Current time of battle is %s"%(start_game.duration_of_games()))
             logging.info("Current time of battle is %s"%(start_game.duration_of_games()))
             break                                  
 
