@@ -55,13 +55,13 @@ def main():
                     del armies[n]
                     logging.info("Count of armies: %s"%(len(armies)))
 
-            for army in armies:
-                logging.info(army.name)
-                for squad in army.squads:
-                    logging.info("    Squad type: %s"%(squad.type))
-                    logging.info("    Squad counts: %s"%(len(squad.units)))
-                    for n, unit in enumerate(squad.units):                       
-                        logging.info("        Unit %s health %.2f,  attack success %.3f, time recharge: %s"%(n+1, unit.health, unit.attack_success, time.strftime("%H:%M:%S", time.localtime(unit.time_recharge))))                   
+            # for army in armies:
+            #     logging.info(army.name)
+            #     for squad in army.squads:
+            #         logging.info("    Squad type: %s"%(squad.type))
+            #         logging.info("    Squad counts: %s"%(len(squad.units)))
+            #         for n, unit in enumerate(squad.units):                       
+            #             logging.info("        Unit %s health %.2f,  attack success %.3f, time recharge: %s"%(n+1, unit.health, unit.attack_success, time.strftime("%H:%M:%S", time.localtime(unit.time_recharge))))                   
 
         else:
             logging.info("Attacking squad is lose")
