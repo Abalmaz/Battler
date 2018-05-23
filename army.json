@@ -1,0 +1,98 @@
+{
+	"armies":[
+		{
+			"name": "USA",
+			"strategy": "weakest",
+			"squads":[
+				{
+					"type": "soldiers",
+					"units":[{
+						"health": 100,
+						"recharge": 10						
+						},
+						{
+						"health": 100,
+						"recharge": 10						
+						},
+						{
+						"health": 100,
+						"recharge": 10					
+						}
+					]
+				},
+				{
+					"type": "vehicles",
+					"units":[{
+						"health": 100,
+						"recharge": 1000,
+						"operators":[
+							{
+								"health": 100,
+								"recharge": 10
+							},
+							{
+								"health": 100,
+								"recharge": 10
+							}							
+						]
+					}
+					]
+				}
+			]
+		},
+		{
+			"name": "Canada",
+			"strategy": "strongest",
+			"squads":[
+				{
+					"type": "soldiers",
+					"units":[{
+						"health": 100,
+						"recharge": 10					
+						},
+						{
+						"health": 100,
+						"recharge": 10					
+						}
+					]
+				},
+				{
+					"type": "vehicles",
+					"units":[{
+						"health": 100,
+						"recharge": 100,
+						"operators":[
+							{
+								"health": 100,
+								"recharge": 10
+							},
+							{
+								"health": 100,
+								"recharge": 10
+							}							
+						]
+					},
+					{
+						"health": 100,
+						"recharge": 200,
+						"operators":[
+							{
+								"health": 100,
+								"recharge": 10
+							},
+							{
+								"health": 100,
+								"recharge": 30
+							},
+							{
+								"health": 100,
+								"recharge": 20
+							}														
+						]
+					}
+					]
+				}
+			]
+		}		
+	]
+}
